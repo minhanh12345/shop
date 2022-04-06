@@ -9,15 +9,10 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class User {
+public class Shipper {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
-    private String password;
-    private String fullName;
+    private String name;
     private String phone;
-    private String email;
-    private String address;
-
 }

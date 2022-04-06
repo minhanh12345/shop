@@ -1,26 +1,25 @@
 package com.example.project_shop.entity;
 
+import com.example.project_shop.enumdata.TypeVeg;
 import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 @Data
 @Entity
-public class Product {
+public class Vegetable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String category;
     private String name;
+    private Double price;
+    private TypeVeg typeVeg;
+    private Double manyGram;
     private String desc;
-    private String price;
-    private String unit;
-    private String weigth;
-    private String width;
-    private String height;
-    private Long amount;
-
+    private String howToUse;
+    private Boolean available;
+    private String picture;
+    private String supplier;
 }
