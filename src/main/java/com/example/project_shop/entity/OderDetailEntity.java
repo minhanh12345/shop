@@ -6,15 +6,15 @@ import javax.persistence.*;
 
 @Entity
 @Data
-public class OderDetail {
+public class OderDetailEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Integer amount;
     @ManyToOne
-    private Order order;
+    private OrderEntity order;
     @ManyToOne
-    private Vegetable vegetable;
+    private VegetableEntity vegetable;
     private Double discount;
 
     public Double getTotal() {

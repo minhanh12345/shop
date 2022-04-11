@@ -6,16 +6,16 @@ import javax.persistence.*;
 
 @Entity
 @Data
-public class Order {
+public class OrderEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
-    private Customer customer;
+    @ManyToOne
+    private UserEntity customer;
     private String orderDate;
     private String shipDate;
-    @OneToOne
-    private Shipper shipper;
+    @ManyToOne
+    private ShipperEntity shipper;
     private Long transStatus;
     private String messsage;
     private Boolean delected;

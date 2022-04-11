@@ -1,15 +1,14 @@
 package com.example.project_shop.entity;
 
+import com.example.project_shop.enumdata.Status;
 import com.example.project_shop.enumdata.TypeVeg;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 @Data
 @Entity
-public class Vegetable {
+public class VegetableEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,7 +18,8 @@ public class Vegetable {
     private Double manyGram;
     private String desc;
     private String howToUse;
-    private Boolean available;
+    private Status available;
     private String picture;
-    private String supplier;
+    @ManyToOne
+    private SupplierEntity supplier;
 }
