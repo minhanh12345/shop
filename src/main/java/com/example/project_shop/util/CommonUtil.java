@@ -69,7 +69,7 @@ public class CommonUtil {
     public static Pageable buildPageable(int pageIndex, int pageSize, String sortColumn, String sortDirection) {
         Sort.Direction direction = Sort.Direction.fromString(sortDirection.toLowerCase());
 
-        return new PageRequest(pageIndex, pageSize, new Sort.Order(direction, sortColumn, Sort.NullHandling.NULLS_FIRST));
+        return  PageRequest.of(pageIndex, pageSize, Sort.by(direction, sortColumn));
     }
     public static String convertDateToStringFormatDate(Timestamp dateTime, String formatDate) {
         if (dateTime == null) {

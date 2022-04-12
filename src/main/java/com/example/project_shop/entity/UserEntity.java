@@ -1,24 +1,30 @@
 package com.example.project_shop.entity;
 
-import com.example.project_shop.enumdata.Role;
+
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
+@Table(name = "user")
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private Long id;
+    @Column(name="username")
     private String username;
+    @Column(name="password")
     private String password;
+    @Column(name="full_name")
     private String fullName;
+    @Column(name="phone")
     private String phone;
+    @Column(name="email")
     private String email;
+    @Column(name="address")
     private String address;
-private Role role;
+    @Column(name="role")
+    private String role;
 }

@@ -11,11 +11,12 @@ public class SearchCriteria {
     private String filterVegDiscount;
     private String filterVegSupplier;
 
-    public SearchCriteria(String filterVegType, String filterNameVeg, String filterVegStatus, String filterVegDiscount) {
+    public SearchCriteria(String filterVegType, String filterNameVeg, String filterVegStatus, String filterVegDiscount, String filterVegSupplier) {
         this.filterVegType = filterVegType;
         this.filterNameVeg = filterNameVeg;
         this.filterVegStatus = filterVegStatus;
         this.filterVegDiscount = filterVegDiscount;
+        this.filterVegSupplier = filterVegSupplier;
     }
 
     public boolean isEmptyFilters() {

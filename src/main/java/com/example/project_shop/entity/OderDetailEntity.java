@@ -6,18 +6,24 @@ import javax.persistence.*;
 
 @Entity
 @Data
+@Table(name = "order_detail")
 public class OderDetailEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private Long id;
+    @Column(name="amount")
     private Integer amount;
     @ManyToOne
+    @JoinColumn(name = "order_id")
     private OrderEntity order;
     @ManyToOne
+    @JoinColumn(name="veg_id")
     private VegetableEntity vegetable;
-    private Double discount;
+    @Column(name="discount")
+    private Float discount;
 
-    public Double getTotal() {
+    public Float getTotal() {
         return this.vegetable.getPrice()*amount-discount;
     }
 }
