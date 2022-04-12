@@ -30,4 +30,18 @@ public class OrderEntity {
     private Boolean delected;
     @Column(name = "price_ship")
     private Float priceShip;
+    @Column(name="type_pay")
+    private String typePay;
+
+    public OrderEntity( String orderDate,   Long transStatus, String messsage, Boolean delected,String typePay) {
+        this.orderDate = orderDate;
+        this.transStatus = transStatus;
+        this.messsage = messsage;
+        this.delected = delected;
+        this.typePay=typePay;
+    }
+
+    public OrderEntity() {
+
+    }
 }

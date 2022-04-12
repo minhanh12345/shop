@@ -23,6 +23,12 @@ public class OderDetailEntity {
     @Column(name="discount")
     private Float discount;
 
+    public OderDetailEntity(Integer amount, OrderEntity order, VegetableEntity vegetable) {
+        this.amount = amount;
+        this.order = order;
+        this.vegetable = vegetable;
+    }
+
     public Float getTotal() {
         return this.vegetable.getPrice()*amount-discount;
     }

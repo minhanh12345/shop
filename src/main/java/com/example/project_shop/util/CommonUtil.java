@@ -246,6 +246,7 @@ public class CommonUtil {
         return seniorityRange;
     }
 
+
     ;
 
 }

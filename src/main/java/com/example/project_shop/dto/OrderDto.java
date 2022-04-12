@@ -7,5 +7,11 @@ import java.util.List;
 @Data
 public class OrderDto {
     private List<OrderDetailDto> lstOrderDetail;
-    private
+    private String name;
+    private String phone;
+    private String address;
+    private String message;
+    private Long customerId;
+    private String typePay;
+
 }

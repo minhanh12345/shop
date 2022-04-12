@@ -1,20 +1,14 @@
 package com.example.project_shop.service.impl;
-
-import com.example.project_shop.entity.UserEntity;
 import com.example.project_shop.entity.VegetableEntity;
 import com.example.project_shop.repository.VegRepo;
 import com.example.project_shop.service.VegService;
 import com.example.project_shop.util.CommonUtil;
 import com.example.project_shop.util.PagingAndSortingModel;
 import org.apache.commons.lang3.StringUtils;
-import org.hibernate.usertype.UserType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-
-
 import javax.persistence.criteria.Predicate;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +31,8 @@ public class VegServiceImpl implements VegService {
                 predicateList.add(builder.like(vegJoin.get("name"), "%" + model.getSearchCriteria().getFilterNameVeg() + "%"));
             }
             if (StringUtils.isNotBlank(model.getSearchCriteria().getFilterVegSupplier())) {
-                predicateList.add(builder.equal(vegJoin.get("supplier").get("name"), model.getSearchCriteria().getFilterVegSupplier()));
+                predicateList.add(builder.equal(vegJoin.get("s" +
+                        "upplier").get("name"), model.getSearchCriteria().getFilterVegSupplier()));
             }
             if (StringUtils.isNotBlank(model.getSearchCriteria().getFilterVegStatus())) {
                 predicateList.add(builder.equal(vegJoin.get("available"), model.getSearchCriteria().getFilterVegStatus()));
