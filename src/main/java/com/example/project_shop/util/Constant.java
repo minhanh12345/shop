@@ -1,7 +1,7 @@
 package com.example.project_shop.util;
 
 public class Constant {
-//    public static final String CATALOG = "Recognition_DEV"; // HRIS
+    //    public static final String CATALOG = "Recognition_DEV"; // HRIS
 //    public static final String SCHEMA = "dbo";
 //    public static final int MAX_LENGTH_ENCODE = 20;
 //    public static final String DATE_TIME_FORMAT_YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd hh:mm:ss";
@@ -9,6 +9,12 @@ public class Constant {
 //    public static final String EMAIL_TEMPLATE_FORGOT_PASSWORD = "EMAIL_TEMPLATE_FORGOT_PASSWORD";
 //    public static final int EXPIRED_TIME_RESET_PASSWORD = 12;
 //    public static final String SPLIT_LIST_STRING = ";";
+    public class Role {
+        public static final String CUSTOMER = "CUSTOMER";
+        public static final String SHIPPER = "SHIPPER";
+        public static final String ADMIN = "ADMIN";
+        public static final String STAFF = "STAFF";
+    }
 
     public class Code {
         public static final int SUCCESS = 200;
@@ -36,8 +42,6 @@ public class Constant {
         public static final String USER_NOT_FOUND = "not found user";
 
     }
-
-
 
 
     public enum EmailType {
@@ -77,7 +81,6 @@ public class Constant {
             return emailTemplate;
         }
     }
-
 
 
     public enum NotificationReferenceType {

@@ -11,20 +11,32 @@ import javax.persistence.*;
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private Long id;
-    @Column(name="username")
+    @Column(name = "username")
     private String username;
-    @Column(name="password")
+    @Column(name = "password")
     private String password;
-    @Column(name="full_name")
+    @Column(name = "full_name")
     private String fullName;
-    @Column(name="phone")
+    @Column(name = "phone")
     private String phone;
-    @Column(name="email")
+    @Column(name = "email")
     private String email;
-    @Column(name="address")
+    @Column(name = "address")
     private String address;
-    @Column(name="role")
+    @Column(name = "role")
     private String role;
+
+    public UserEntity() {
+    }
+
+
+
+    public UserEntity(String fullName, String phone, String address, String role) {
+        this.fullName = fullName;
+        this.phone = phone;
+        this.address = address;
+        this.role = role;
+    }
 }

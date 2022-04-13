@@ -32,12 +32,19 @@ public class CommonUtil {
     }
 
     public static java.sql.Date convertTimestampToDate(Timestamp timestamp) {
-        if(timestamp == null) {
-            return  null;
+        if (timestamp == null) {
+            return null;
         }
 
         java.sql.Date date = new java.sql.Date(timestamp.getTime());
         return date;
+    }
+
+    public static String timeNowToString() {
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        String strDate = sdf.format(cal.getTime());
+        return strDate;
     }
 
     public static String convertDateSqlToString(java.sql.Date date, String formatDate) {
@@ -66,11 +73,13 @@ public class CommonUtil {
         cal.set(Calendar.MILLISECOND, 0);
         return new Timestamp(cal.getTimeInMillis());
     }
+
     public static Pageable buildPageable(int pageIndex, int pageSize, String sortColumn, String sortDirection) {
         Sort.Direction direction = Sort.Direction.fromString(sortDirection.toLowerCase());
 
-        return  PageRequest.of(pageIndex, pageSize, Sort.by(direction, sortColumn));
+        return PageRequest.of(pageIndex, pageSize, Sort.by(direction, sortColumn));
     }
+
     public static String convertDateToStringFormatDate(Timestamp dateTime, String formatDate) {
         if (dateTime == null) {
             return "";

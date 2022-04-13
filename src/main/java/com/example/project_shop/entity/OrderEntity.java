@@ -27,13 +27,14 @@ public class OrderEntity {
     @Column(name = "message")
     private String messsage;
     @Column(name = "delected")
-    private Boolean delected;
+    private Long delected;
     @Column(name = "price_ship")
     private Float priceShip;
     @Column(name="type_pay")
     private String typePay;
 
-    public OrderEntity( String orderDate,   Long transStatus, String messsage, Boolean delected,String typePay) {
+    public OrderEntity( UserEntity customer,String orderDate,   Long transStatus, String messsage, Long delected,String typePay) {
+        this.customer=customer;
         this.orderDate = orderDate;
         this.transStatus = transStatus;
         this.messsage = messsage;
