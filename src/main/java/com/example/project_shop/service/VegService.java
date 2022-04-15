@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface VegService {
     List<VegetableEntity> getAllWithPagingAndSorting(PagingAndSortingModel model);
+    VegetableEntity save(VegetableEntity vegetable);
+    void delete(Long idVeg);
 }

@@ -1,4 +1,5 @@
 package com.example.project_shop.service.impl;
+
 import com.example.project_shop.entity.VegetableEntity;
 import com.example.project_shop.repository.VegRepo;
 import com.example.project_shop.service.VegService;
@@ -45,4 +46,16 @@ public class VegServiceImpl implements VegService {
 
         return page.getContent();
     }
+
+    @Override
+    public VegetableEntity save(VegetableEntity vegetable) {
+        VegetableEntity vegetableEntity = vegRepo.save(vegetable);
+        return vegetableEntity;
+    }
+
+    @Override
+    public void delete(Long idVeg) {
+        vegRepo.delete(vegRepo.getById(idVeg));
+    }
+
 }

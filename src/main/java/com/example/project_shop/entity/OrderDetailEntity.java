@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Entity
 @Data
 @Table(name = "order_detail")
-public class OderDetailEntity {
+public class OrderDetailEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
@@ -23,10 +23,10 @@ public class OderDetailEntity {
     @Column(name="discount")
     private Float discount;
 
-    public OderDetailEntity() {
+    public OrderDetailEntity() {
     }
 
-    public OderDetailEntity(Integer amount, OrderEntity order, VegetableEntity vegetable) {
+    public OrderDetailEntity(Integer amount, OrderEntity order, VegetableEntity vegetable) {
         this.amount = amount;
         this.order = order;
         this.vegetable = vegetable;

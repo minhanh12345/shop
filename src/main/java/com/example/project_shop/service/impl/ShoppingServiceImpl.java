@@ -3,7 +3,7 @@ package com.example.project_shop.service.impl;
 import com.example.project_shop.dto.OrderDetailDto;
 import com.example.project_shop.dto.OrderDto;
 import com.example.project_shop.dto.ResponseDto;
-import com.example.project_shop.entity.OderDetailEntity;
+import com.example.project_shop.entity.OrderDetailEntity;
 import com.example.project_shop.entity.OrderEntity;
 import com.example.project_shop.entity.UserEntity;
 import com.example.project_shop.repository.OrderDetailRepo;
@@ -40,7 +40,7 @@ public class ShoppingServiceImpl implements ShoppingService {
         OrderEntity order = orderRepo.save(new OrderEntity(customer, CommonUtil.timeNowToString(), 1L, orderDto.getMessage(), 1L, orderDto.getTypePay()));
         for (OrderDetailDto odd : orderDto.getLstOrderDetail()
         ) {
-            orderDetailRepo.save(new OderDetailEntity(odd.getAmount(), order, vegRepo.getById(odd.getVegId())));
+            orderDetailRepo.save(new OrderDetailEntity(odd.getAmount(), order, vegRepo.getById(odd.getVegId())));
         }
         responseDto.setContent(order);
         responseDto.setStatusCode(Constant.Code.SUCCESS);
@@ -59,8 +59,6 @@ public class ShoppingServiceImpl implements ShoppingService {
         responseDto.setStatusCode(Constant.Code.SUCCESS);
         return responseDto;
     }
-    public ResponseDto measureDistance (){
 
-    }
 
 }
