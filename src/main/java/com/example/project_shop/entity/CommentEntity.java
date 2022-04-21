@@ -15,7 +15,6 @@ public class CommentEntity {
     private UserEntity createUser;
     @ManyToOne
     private BlogEntity blog;
-    @OneToOne
-    private CommentEntity parentComment;
+    private Long parentCommentId;
     private String createTime;
 }

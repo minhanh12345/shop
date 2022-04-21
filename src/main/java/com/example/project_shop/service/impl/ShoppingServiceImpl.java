@@ -29,8 +29,8 @@ public class ShoppingServiceImpl implements ShoppingService {
 
 
     @Override
-    public ResponseDto checkOut(OrderDto orderDto) {
-        ResponseDto responseDto = new ResponseDto<>();
+    public ResponseDto<OrderEntity> checkOut(OrderDto orderDto) {
+        ResponseDto<OrderEntity> responseDto = new ResponseDto<>();
         UserEntity customer;
         if (orderDto.getCustomerId() != null) {
             customer = userRepo.getById(orderDto.getCustomerId());

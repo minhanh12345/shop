@@ -16,6 +16,7 @@ import java.util.List;
 public class CommentController {
     @Autowired
     CommentService commentService;
+
     @GetMapping("/findAll")
     public ResponseDto<List<CommentEntity>> getAll(
             @RequestParam(defaultValue = "", required = false) Long filterIdBlog,
@@ -30,20 +31,33 @@ public class CommentController {
         responseDto.setStatusCode(Constant.Code.SUCCESS);
         return responseDto;
     }
+
     @PostMapping("/save")
-    public ResponseDto<CommentEntity> save(@RequestBody CommentEntity comment){
-        ResponseDto responseDto=new ResponseDto();
+    public ResponseDto<CommentEntity> save(@RequestBody CommentEntity comment) {
+        ResponseDto responseDto = new ResponseDto();
         responseDto.setContent(commentService.save(comment));
         responseDto.setErrorMessage(Constant.Message.SUCCESS);
         responseDto.setStatusCode(Constant.Code.SUCCESS);
         return responseDto;
     }
+
     @DeleteMapping("/delete/{id}")
-    public ResponseDto delete(@PathVariable Long id){
-        ResponseDto responseDto=new ResponseDto();
+    public ResponseDto delete(@PathVariable Long id) {
+        ResponseDto responseDto = new ResponseDto();
         commentService.delete(id);
         responseDto.setErrorMessage(Constant.Message.SUCCESS);
         responseDto.setStatusCode(Constant.Code.SUCCESS);
         return responseDto;
     }
+
+    @GetMapping("/getAllCmtByParent/{id}")
+    public ResponseDto getAllCmtByParent(@PathVariable Long id) {
+        ResponseDto responseDto = new ResponseDto();
+        List<CommentEntity> list = commentService.getRepComment(id);
+        responseDto.setContent(list);
+        responseDto.setErrorMessage(Constant.Message.SUCCESS);
+        responseDto.setStatusCode(Constant.Code.SUCCESS);
+        return responseDto;
+    }
+
 }

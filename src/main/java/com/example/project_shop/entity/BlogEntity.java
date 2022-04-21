@@ -1,6 +1,7 @@
 package com.example.project_shop.entity;
 
 import lombok.Data;
+import org.springframework.data.annotation.CreatedBy;
 
 import javax.persistence.*;
 

@@ -5,7 +5,6 @@ import com.example.project_shop.repository.CommentRepo;
 import com.example.project_shop.service.CommentService;
 import com.example.project_shop.util.CommonUtil;
 import com.example.project_shop.util.PagingAndSortingModel;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.domain.Specification;
@@ -39,6 +38,7 @@ public class CommentServiceImpl implements CommentService {
         return page.getContent();
     }
 
+    @Override
     public List<CommentEntity> getRepComment(Long idCmt) {
         List<CommentEntity> lst = new ArrayList<>();
         Optional<List<CommentEntity>> list = commentRepo.getAllByParentComment(idCmt);

@@ -7,6 +7,10 @@ import java.util.List;
 
 public interface CommentService {
     List<CommentEntity> getAllWithPagingAndSorting(PagingAndSortingModel model);
+
     CommentEntity save(CommentEntity comment);
+
     void delete(Long idCmt);
+
+    List<CommentEntity> getRepComment(Long idCmt);
 }

@@ -9,6 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CommentRepo extends JpaRepository<CommentEntity,Long>, JpaSpecificationExecutor<CommentEntity> {
-    @Query("select c from CommentEntity c where c.parentComment.id = ?1")
+    @Query("select c from CommentEntity c where c.parentCommentId = ?1")
     Optional<List<CommentEntity>> getAllByParentComment(Long idCmt);
 }

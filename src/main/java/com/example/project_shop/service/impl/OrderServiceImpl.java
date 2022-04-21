@@ -68,7 +68,7 @@ public class OrderServiceImpl implements OrderService {
             List<OrderDetailEntity> odLst = orderDetailRepo.getAllByOrder(o.getId());
             float totalPrice = 0;
             for (OrderDetailEntity ode : odLst) {
-                totalPrice += ode.getVegetable().getPrice();
+                totalPrice += ode.getVegetable().getPrice()*ode.getAmount();
             }
             orderViewAdmin.setTotalPrice(totalPrice);
             orderViewAdmin.setIdOrder(o.getId());
