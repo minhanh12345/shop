@@ -30,24 +30,24 @@ public class UserController {
         SearchCriteria searchCriteria = new SearchCriteria(filterRoleUser, filterPhoneUser, filterNameUser, filterUsername);
         ResponseDto<List<UserEntity>> responseDto = new ResponseDto<>();
         responseDto.setContent(userService.getAllWithPagingAndSorting(new PagingAndSortingModel(searchCriteria, pageIndex, pageSize, sortColumn, sortDirection)));
-        responseDto.setErrorMessage(Constant.Message.SUCCESS);
-        responseDto.setStatusCode(Constant.Code.SUCCESS);
+        responseDto.setMessage(Constant.Message.SUCCESS);
+        responseDto.setStatusCode(Constant.CodeRes.SUCCESS);
         return responseDto;
     }
     @PostMapping("/save")
     public ResponseDto<UserEntity> save(@RequestBody UserEntity user){
         ResponseDto responseDto=new ResponseDto();
         responseDto.setContent(userService.save(user));
-        responseDto.setErrorMessage(Constant.Message.SUCCESS);
-        responseDto.setStatusCode(Constant.Code.SUCCESS);
+        responseDto.setMessage(Constant.Message.SUCCESS);
+        responseDto.setStatusCode(Constant.CodeRes.SUCCESS);
         return responseDto;
     }
     @DeleteMapping("/delete/{id}")
     public ResponseDto delete(@PathVariable Long id){
         ResponseDto responseDto=new ResponseDto();
         userService.delete(id);
-        responseDto.setErrorMessage(Constant.Message.SUCCESS);
-        responseDto.setStatusCode(Constant.Code.SUCCESS);
+        responseDto.setMessage(Constant.Message.SUCCESS);
+        responseDto.setStatusCode(Constant.CodeRes.SUCCESS);
         return responseDto;
     }
 }

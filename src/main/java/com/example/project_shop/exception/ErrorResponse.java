@@ -17,22 +17,21 @@ public class ErrorResponse implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String errorType ;
-	private String messageEN;
-	private String messageVN;
-	private int errorCode;
+	private String message;
 	private int status;
 
-	public ErrorResponse(int errorCode,String errorType, String messageEN, String messageVN) {
+
+	public ErrorResponse(String errorType, String message, int status) {
+		super();
 		this.errorType = errorType;
-		this.messageEN = messageEN;
-		this.messageVN = messageVN;
-		this.errorCode = errorCode;
+		this.message = message;
+		this.status = status;
 	}
+
 	public ErrorResponse(String errorType, String message) {
 		super();
 		this.errorType = errorType;
-		this.messageEN = messageEN;
-		this.messageVN = messageVN;
+		this.message = message;
 		this.status = Constant.Code.BAD_REQUEST;
 	}
 

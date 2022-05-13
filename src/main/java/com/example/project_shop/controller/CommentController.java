@@ -27,8 +27,8 @@ public class CommentController {
         SearchCriteria searchCriteria = new SearchCriteria(filterIdBlog);
         ResponseDto<List<CommentEntity>> responseDto = new ResponseDto<>();
         responseDto.setContent(commentService.getAllWithPagingAndSorting(new PagingAndSortingModel(searchCriteria, pageIndex, pageSize, sortColumn, sortDirection)));
-        responseDto.setErrorMessage(Constant.Message.SUCCESS);
-        responseDto.setStatusCode(Constant.Code.SUCCESS);
+        responseDto.setMessage(Constant.Message.SUCCESS);
+        responseDto.setStatusCode(Constant.CodeRes.SUCCESS);
         return responseDto;
     }
 
@@ -36,8 +36,8 @@ public class CommentController {
     public ResponseDto<CommentEntity> save(@RequestBody CommentEntity comment) {
         ResponseDto responseDto = new ResponseDto();
         responseDto.setContent(commentService.save(comment));
-        responseDto.setErrorMessage(Constant.Message.SUCCESS);
-        responseDto.setStatusCode(Constant.Code.SUCCESS);
+        responseDto.setMessage(Constant.Message.SUCCESS);
+        responseDto.setStatusCode(Constant.CodeRes.SUCCESS);
         return responseDto;
     }
 
@@ -45,8 +45,8 @@ public class CommentController {
     public ResponseDto delete(@PathVariable Long id) {
         ResponseDto responseDto = new ResponseDto();
         commentService.delete(id);
-        responseDto.setErrorMessage(Constant.Message.SUCCESS);
-        responseDto.setStatusCode(Constant.Code.SUCCESS);
+        responseDto.setMessage(Constant.Message.SUCCESS);
+        responseDto.setStatusCode(Constant.CodeRes.SUCCESS);
         return responseDto;
     }
 
@@ -55,8 +55,8 @@ public class CommentController {
         ResponseDto responseDto = new ResponseDto();
         List<CommentEntity> list = commentService.getRepComment(id);
         responseDto.setContent(list);
-        responseDto.setErrorMessage(Constant.Message.SUCCESS);
-        responseDto.setStatusCode(Constant.Code.SUCCESS);
+        responseDto.setMessage(Constant.Message.SUCCESS);
+        responseDto.setStatusCode(Constant.CodeRes.SUCCESS);
         return responseDto;
     }
 

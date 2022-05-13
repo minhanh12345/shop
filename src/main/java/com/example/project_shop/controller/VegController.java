@@ -1,7 +1,6 @@
 package com.example.project_shop.controller;
 
 import com.example.project_shop.dto.ResponseDto;
-import com.example.project_shop.entity.UserEntity;
 import com.example.project_shop.entity.VegetableEntity;
 import com.example.project_shop.enumdata.Status;
 import com.example.project_shop.service.VegService;
@@ -33,24 +32,24 @@ public class VegController {
         SearchCriteria searchCriteria = new SearchCriteria(filterVegType, filterNameVeg, filterVegStatus, filterVegDiscount, filterVegSupplier);
         ResponseDto<List<VegetableEntity>> responseDto = new ResponseDto<>();
         responseDto.setContent(vegService.getAllWithPagingAndSorting(new PagingAndSortingModel(searchCriteria, pageIndex, pageSize, sortColumn, sortDirection)));
-        responseDto.setErrorMessage(Constant.Message.SUCCESS);
-        responseDto.setStatusCode(Constant.Code.SUCCESS);
+        responseDto.setMessage(Constant.Message.SUCCESS);
+        responseDto.setStatusCode(Constant.CodeRes.SUCCESS);
         return responseDto;
     }
     @PostMapping("/save")
     public ResponseDto<VegetableEntity> save(@RequestBody VegetableEntity vegetable){
         ResponseDto responseDto=new ResponseDto();
         responseDto.setContent(vegService.save(vegetable));
-        responseDto.setErrorMessage(Constant.Message.SUCCESS);
-        responseDto.setStatusCode(Constant.Code.SUCCESS);
+        responseDto.setMessage(Constant.Message.SUCCESS);
+        responseDto.setStatusCode(Constant.CodeRes.SUCCESS);
         return responseDto;
     }
     @DeleteMapping("/delete/{id}")
     public ResponseDto delete(@PathVariable Long id){
         ResponseDto responseDto=new ResponseDto();
         vegService.delete(id);
-        responseDto.setErrorMessage(Constant.Message.SUCCESS);
-        responseDto.setStatusCode(Constant.Code.SUCCESS);
+        responseDto.setMessage(Constant.Message.SUCCESS);
+        responseDto.setStatusCode(Constant.CodeRes.SUCCESS);
         return responseDto;
     }
 }

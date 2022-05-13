@@ -27,24 +27,24 @@ public class BlogController {
         SearchCriteria searchCriteria = new SearchCriteria(filterCategoryBlog);
         ResponseDto<List<BlogEntity>> responseDto = new ResponseDto<>();
         responseDto.setContent(blogService.getAllWithPagingAndSorting(new PagingAndSortingModel(searchCriteria, pageIndex, pageSize, sortColumn, sortDirection)));
-        responseDto.setErrorMessage(Constant.Message.SUCCESS);
-        responseDto.setStatusCode(Constant.Code.SUCCESS);
+        responseDto.setMessage(Constant.Message.SUCCESS);
+        responseDto.setStatusCode(Constant.CodeRes.SUCCESS);
         return responseDto;
     }
     @PostMapping("/save")
     public ResponseDto<BlogEntity> save(@RequestBody BlogEntity user){
         ResponseDto responseDto=new ResponseDto();
         responseDto.setContent(blogService.save(user));
-        responseDto.setErrorMessage(Constant.Message.SUCCESS);
-        responseDto.setStatusCode(Constant.Code.SUCCESS);
+        responseDto.setMessage(Constant.Message.SUCCESS);
+        responseDto.setStatusCode(Constant.CodeRes.SUCCESS);
         return responseDto;
     }
     @DeleteMapping("/delete/{id}")
     public ResponseDto delete(@PathVariable Long id){
         ResponseDto responseDto=new ResponseDto();
         blogService.delete(id);
-        responseDto.setErrorMessage(Constant.Message.SUCCESS);
-        responseDto.setStatusCode(Constant.Code.SUCCESS);
+        responseDto.setMessage(Constant.Message.SUCCESS);
+        responseDto.setStatusCode(Constant.CodeRes.SUCCESS);
         return responseDto;
     }
 }

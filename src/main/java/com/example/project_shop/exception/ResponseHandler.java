@@ -21,8 +21,8 @@ public class ResponseHandler {
     @ResponseStatus(value = HttpStatus.FORBIDDEN)
     public ErrorResponse handleAccessDeniedException(AccessDeniedException ex, WebRequest request) {
         ErrorResponse errorResponse = new ErrorResponse();
-        errorResponse.setErrorCode(403);
-        errorResponse.setMessageVN("Bạn không đủ quyền để truy cập vào đây");
+        errorResponse.setStatus(403);
+        errorResponse.setMessage("Bạn không đủ quyền để truy cập vào đây");
         return errorResponse;
     }
 
@@ -31,10 +31,7 @@ public class ResponseHandler {
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public ErrorResponse handleDisableException(DisabledException ex, WebRequest request) {
         ErrorResponse errorResponse = new ErrorResponse();
-        errorResponse.setErrorCode(ErrorConstant.Code.USER_INACTIVE);
         errorResponse.setErrorType(ErrorConstant.Type.USER_INACTIVE);
-        errorResponse.setMessageEN(ErrorConstant.MessageEN.USER_INACTIVE);
-        errorResponse.setMessageVN(ErrorConstant.MessageVI.USER_INACTIVE);
         return errorResponse;
     }
 
@@ -42,8 +39,8 @@ public class ResponseHandler {
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public ErrorResponse handleTokenRefreshException(TokenRefreshException ex, WebRequest request) {
         ErrorResponse errorResponse = new ErrorResponse();
-        errorResponse.setErrorCode(HttpStatus.FORBIDDEN.value());
-        errorResponse.setMessageEN(ex.getMessage());
+        errorResponse.setStatus(HttpStatus.FORBIDDEN.value());
+        errorResponse.setMessage(ex.getMessage());
         return errorResponse;
     }
 }

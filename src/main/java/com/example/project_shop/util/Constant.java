@@ -25,13 +25,15 @@ public class Constant {
         public static final int DELETED_FAIL = 301;
         public static final int BAD_REQUEST = 400;
         public static final int BAD_PARAM = 0;
+        public static final int FORBIDDEN = 403;
     }
 
     public class ErrorType {
         public static final String SUCCESS = "SUCCESS";
         public static final String LOGIN_USER_NOT_FOUND = "LOGIN_USER_NOT_FOUND";
         public static final String LOGIN_FAIL = "LOGIN_FAIL";
-
+        public static final String RefreshToken_NotFound = "NOT_FOUND_REFRESHTOKEN";
+        public static final String RefreshToken_expired = "RefreshToken_expired";
 
     }
 
@@ -40,9 +42,15 @@ public class Constant {
         public static final String SUCCESS = "success";
         public static final String LOGIN_FAIL = "Email or password is not correct !";
         public static final String USER_NOT_FOUND = "not found user";
-
+        public static  final  String RefreshToken_NotFound = "Refresh token is empty!";
+        public static final String RefreshToken_expired = "Refresh token was expired. Please make a new signin request";
     }
-
+    public class CodeRes {
+        public static final String SUCCESS = "200";
+        public static final String NOT_FOUND = "400";
+        public static final String BAD_REQUEST = "400";
+        public static final String INTERNAL_SERVER_ERROR = "400";
+    }
 
     public enum EmailType {
         CREATION("Creation"),

@@ -27,24 +27,29 @@ public class ShoppingServiceImpl implements ShoppingService {
     @Autowired
     VegRepo vegRepo;
 
+//
+//    @Override
+//    public ResponseDto<OrderEntity> checkOut(OrderDto orderDto) {
+//        ResponseDto<OrderEntity> responseDto = new ResponseDto<>();
+//        UserEntity customer;
+//        if (orderDto.getCustomerId() != null) {
+//            customer = userRepo.getById(orderDto.getCustomerId());
+//        } else {
+//            customer = userRepo.save(new UserEntity(orderDto.getName(), orderDto.getPhone(), orderDto.getAddress(), Constant.Role.CUSTOMER));
+//        }
+//        OrderEntity order = orderRepo.save(new OrderEntity(customer, CommonUtil.timeNowToString(), 1L, orderDto.getMessage(), 1L, orderDto.getTypePay()));
+//        for (OrderDetailDto odd : orderDto.getLstOrderDetail()
+//        ) {
+//            orderDetailRepo.save(new OrderDetailEntity(odd.getAmount(), order, vegRepo.getById(odd.getVegId())));
+//        }
+//        responseDto.setContent(order);
+//        responseDto.setStatusCode(Constant.Code.SUCCESS);
+//        return responseDto;
+//    }
 
     @Override
     public ResponseDto<OrderEntity> checkOut(OrderDto orderDto) {
-        ResponseDto<OrderEntity> responseDto = new ResponseDto<>();
-        UserEntity customer;
-        if (orderDto.getCustomerId() != null) {
-            customer = userRepo.getById(orderDto.getCustomerId());
-        } else {
-            customer = userRepo.save(new UserEntity(orderDto.getName(), orderDto.getPhone(), orderDto.getAddress(), Constant.Role.CUSTOMER));
-        }
-        OrderEntity order = orderRepo.save(new OrderEntity(customer, CommonUtil.timeNowToString(), 1L, orderDto.getMessage(), 1L, orderDto.getTypePay()));
-        for (OrderDetailDto odd : orderDto.getLstOrderDetail()
-        ) {
-            orderDetailRepo.save(new OrderDetailEntity(odd.getAmount(), order, vegRepo.getById(odd.getVegId())));
-        }
-        responseDto.setContent(order);
-        responseDto.setStatusCode(Constant.Code.SUCCESS);
-        return responseDto;
+        return null;
     }
 
     @Override
@@ -56,7 +61,7 @@ public class ShoppingServiceImpl implements ShoppingService {
         order.setPriceShip(15000F);
         OrderEntity orderSave = orderRepo.save(order);
         responseDto.setContent(orderSave);
-        responseDto.setStatusCode(Constant.Code.SUCCESS);
+        responseDto.setStatusCode(Constant.CodeRes.SUCCESS);
         return responseDto;
     }
 
