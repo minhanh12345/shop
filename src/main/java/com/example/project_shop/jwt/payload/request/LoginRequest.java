@@ -1,4 +1,4 @@
-package jwt.payload.request;
+package com.example.project_shop.jwt.payload.request;
 
 
 import javax.validation.constraints.NotBlank;

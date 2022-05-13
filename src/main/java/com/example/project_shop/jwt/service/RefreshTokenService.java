@@ -1,4 +1,4 @@
-package jwt.service;
+package com.example.project_shop.jwt.service;
 
 
 import com.example.project_shop.entity.RefreshTokenEntity;

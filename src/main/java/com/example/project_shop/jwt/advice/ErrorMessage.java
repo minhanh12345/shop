@@ -1,4 +1,4 @@
-package jwt.advice;
+package com.example.project_shop.jwt.advice;
 import lombok.Getter;
 import lombok.Setter;
 

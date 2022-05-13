@@ -1,4 +1,4 @@
-package jwt.service;
+package com.example.project_shop.jwt.service;
 
 import com.example.project_shop.entity.UserEntity;
 import com.example.project_shop.repository.UserRepo;

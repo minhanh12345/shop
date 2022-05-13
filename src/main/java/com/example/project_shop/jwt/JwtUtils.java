@@ -1,7 +1,7 @@
-package jwt;
+package com.example.project_shop.jwt;
 
 import io.jsonwebtoken.*;
-import jwt.service.UserDetailsImpl;
+import com.example.project_shop.jwt.service.UserDetailsImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

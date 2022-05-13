@@ -11,15 +11,15 @@ import com.example.project_shop.exception.ProductException;
 import com.example.project_shop.repository.RoleRepository;
 import com.example.project_shop.repository.UserRepo;
 import com.example.project_shop.util.Constant;
-import jwt.JwtUtils;
-import jwt.payload.request.LoginRequest;
-import jwt.payload.request.SignupRequest;
-import jwt.payload.request.TokenRefreshRequest;
-import jwt.payload.response.JwtResponse;
-import jwt.payload.response.MessageResponse;
-import jwt.payload.response.TokenRefreshResponse;
-import jwt.service.RefreshTokenService;
-import jwt.service.UserDetailsImpl;
+import com.example.project_shop.jwt.JwtUtils;
+import com.example.project_shop.jwt.payload.request.LoginRequest;
+import com.example.project_shop.jwt.payload.request.SignupRequest;
+import com.example.project_shop.jwt.payload.request.TokenRefreshRequest;
+import com.example.project_shop.jwt.payload.response.JwtResponse;
+import com.example.project_shop.jwt.payload.response.MessageResponse;
+import com.example.project_shop.jwt.payload.response.TokenRefreshResponse;
+import com.example.project_shop.jwt.service.RefreshTokenService;
+import com.example.project_shop.jwt.service.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -88,6 +88,9 @@ public class AuthController {
         // Create new user's account
         UserEntity user = new UserEntity(signUpRequest.getUsername(),
                 signUpRequest.getEmail(),
+                signUpRequest.getFullName(),
+                signUpRequest.getPhone(),
+                signUpRequest.getAddress(),
                 encoder.encode(signUpRequest.getPassword()));
         Set<String> strRoles = signUpRequest.getRole();
         Set<RoleEntity> roles = new HashSet<>();

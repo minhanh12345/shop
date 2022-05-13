@@ -1,4 +1,4 @@
-package jwt.advice;
+package com.example.project_shop.jwt.advice;
 
 import com.example.project_shop.exception.ErrorResponse;
 import com.example.project_shop.exception.ProductException;

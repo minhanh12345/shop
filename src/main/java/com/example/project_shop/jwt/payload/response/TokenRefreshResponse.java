@@ -1,4 +1,4 @@
-package jwt.payload.response;
+package com.example.project_shop.jwt.payload.response;
 
 import lombok.Getter;
 import lombok.Setter;

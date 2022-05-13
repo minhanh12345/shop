@@ -1,4 +1,4 @@
-package jwt;
+package com.example.project_shop.jwt;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
