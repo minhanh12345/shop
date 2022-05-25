@@ -44,6 +44,7 @@ public class VegServiceImpl implements VegService {
         page = vegRepo.findAll(joinSpecification, CommonUtil.buildPageable(model.getPageIndex(),
                 model.getPageSize(), model.getSortColumn(), model.getSortDirection()));
 
+
         return page.getContent();
     }
 
