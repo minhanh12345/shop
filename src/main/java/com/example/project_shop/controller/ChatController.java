@@ -7,15 +7,25 @@ import com.example.project_shop.model.SendMessage;
 import com.example.project_shop.service.impl.ChatService;
 import com.example.project_shop.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.handler.annotation.DestinationVariable;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.messaging.simp.SimpMessageSendingOperations;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+import static java.lang.String.format;
+
+@Controller
 @RequestMapping("/chat")
 public class ChatController {
     @Autowired
     ChatService chatService;
+    @Autowired
+    private SimpMessageSendingOperations messagingTemplate;
+
     @GetMapping("/getRoomsByUser")
     public ResponseDto<List<RoomEntity>> getRoomsByUser(@RequestParam Long userId){
         ResponseDto responseDto = new ResponseDto();
@@ -33,8 +43,9 @@ public class ChatController {
         responseDto.setStatusCode(Constant.CodeRes.SUCCESS);
         return responseDto;
     }
-    @PostMapping("/sendMessage")
-    public ResponseDto<MessageEntity> sendMessage(@RequestBody SendMessage message){
+    @MessageMapping("/{roomId}/sendMessage")
+    public ResponseDto<MessageEntity> sendMessage(@DestinationVariable String roomId, @Payload SendMessage message){
+        messagingTemplate.convertAndSend(format("/room/%s", roomId), message);
         ResponseDto responseDto = new ResponseDto();
         responseDto.setContent(chatService.sendMessage(message));
         responseDto.setMessage(Constant.Message.SUCCESS);
