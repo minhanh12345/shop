@@ -3,6 +3,7 @@ package com.example.project_shop.service.impl;
 
 import com.example.project_shop.entity.MessageEntity;
 import com.example.project_shop.entity.RoomEntity;
+import com.example.project_shop.model.CreateRoomDto;
 import com.example.project_shop.model.SendMessage;
 import com.example.project_shop.repository.MessageRepo;
 import com.example.project_shop.repository.RoomRepo;
@@ -22,8 +23,12 @@ public class ChatService {
     @Autowired
     UserRepo userRepo;
 
-    public RoomEntity createRoom(RoomEntity room) {
-        return roomRepo.save(room);
+    public RoomEntity createRoom(CreateRoomDto room) {
+        RoomEntity roomEntity=new RoomEntity();
+        roomEntity.setTimeCreate(LocalDateTime.now());
+        roomEntity.setUser1(room.getUser1());
+        roomEntity.setUser2(room.getUser2());
+        return roomRepo.save(roomEntity);
     }
 
     public List<RoomEntity> findAllRoomByUser(Long idUser) {

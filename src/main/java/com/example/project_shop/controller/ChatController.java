@@ -3,6 +3,7 @@ package com.example.project_shop.controller;
 import com.example.project_shop.dto.ResponseDto;
 import com.example.project_shop.entity.MessageEntity;
 import com.example.project_shop.entity.RoomEntity;
+import com.example.project_shop.model.CreateRoomDto;
 import com.example.project_shop.model.SendMessage;
 import com.example.project_shop.service.impl.ChatService;
 import com.example.project_shop.util.Constant;
@@ -18,8 +19,9 @@ import java.util.List;
 
 import static java.lang.String.format;
 
-@Controller
+@RestController
 @RequestMapping("/chat")
+@CrossOrigin(value = "*")
 public class ChatController {
     @Autowired
     ChatService chatService;
@@ -36,13 +38,14 @@ public class ChatController {
     }
 
     @PostMapping("/createRoom")
-    public ResponseDto<RoomEntity> createRoom(@RequestBody RoomEntity room){
+    public ResponseDto<RoomEntity> createRoom(@RequestBody CreateRoomDto room){
         ResponseDto responseDto = new ResponseDto();
         responseDto.setContent(chatService.createRoom(room));
         responseDto.setMessage(Constant.Message.SUCCESS);
         responseDto.setStatusCode(Constant.CodeRes.SUCCESS);
         return responseDto;
     }
+
     @MessageMapping("/{roomId}/sendMessage")
     public ResponseDto<MessageEntity> sendMessage(@DestinationVariable String roomId, @Payload SendMessage message){
         messagingTemplate.convertAndSend(format("/room/%s", roomId), message);

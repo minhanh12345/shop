@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface RoomRepo extends JpaRepository<RoomEntity, Long> {
 
-    @Query("select r from RoomEntity r where r.user1 = ?1 or r.user2 = ?2 order by r.timeCreate DESC")
+    @Query("select r from RoomEntity r where r.user1 = ?1 or r.user2 = ?1 order by r.timeCreate DESC")
     List<RoomEntity> findAllByUser1OrUser2OrderByTimeCreateDesc(Long user);
 
 }
